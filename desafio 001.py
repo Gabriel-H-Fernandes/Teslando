@@ -21,8 +21,8 @@ while passo <= 3:
             if nf >= ni:
                 passo = 4 
             else:
-                print(f"Erro: O número final deve ser maior ou igual a {ni}!")
-                
+                print(f"Erro: O número final deve ser maior ou igual a {ni}!")  
+
     except ValueError:
         print("Erro: Digite apenas números inteiros!")
 
