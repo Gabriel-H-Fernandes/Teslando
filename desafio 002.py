@@ -3,6 +3,7 @@ import shutil
 import shlex
 from pathlib import Path
 
+
 def comando_help(args):
     print("=== Comandos Disponíveis ===")
     print("  ls [caminho]              - Lista arquivos ou o conteúdo de um diretório")
@@ -11,6 +12,7 @@ def comando_help(args):
     print("  rm [-r] <alvo1> [alvo2..] - Remove arquivos ou pastas (-r para pastas)")
     print("  touch <arquivo1> ...      - Cria um ou mais arquivos vazios")
     print("  echo \"texto\" [> arquivo]  - Imprime texto ou salva em um arquivo com '>")
+
 
 def comando_ls(args):
     caminho = args[0] if args else "."
@@ -25,6 +27,7 @@ def comando_ls(args):
     for item in Path(caminho).iterdir():
         nome = f"{item.name}/" if item.is_dir() else item.name
         print(nome)
+
 
 def comando_cat(args):
     if not args:
@@ -56,6 +59,7 @@ def comando_cp(args):
     except Exception as e:
         print(f"cp: erro ao copiar: {e}")
 
+
 def comando_rm(args):
     if not args:
         print("Uso: rm [-r] <alvo1> [alvo2...]")
@@ -78,6 +82,7 @@ def comando_rm(args):
         else:
             os.remove(alvo)          
 
+
 def comando_touch(args):
     if not args:
         print("Uso: touch <nome_do_arquivo1> [nome_do_arquivo2...]")
@@ -90,6 +95,7 @@ def comando_touch(args):
             print(f"Arquivo '{caminho}' criado com sucesso.")
         except Exception as e:
             print(f"touch: não foi possível criar '{caminho}': {e}")
+
 
 def comando_echo(args):
     
@@ -112,6 +118,7 @@ def comando_echo(args):
     else:
         
         print(" ".join(args))
+
 
 def main():
     print("=== Terminal Python Iniciado ===")
@@ -150,13 +157,14 @@ def main():
             elif comando == "help":
                 comando_help(argumentos)
             else:
-                print(f"Comando '{comando}' não reconhecido. Comandos disponiveis: ls, cat, cp, rm. Caso queira sair digite 'Sair'")
+                print(f"Comando '{comando}' não reconhecido. Comandos disponiveis: ls, cat, cp, rm, echo, touch e help. Caso queira sair digite 'Sair'")
 
             print() 
 
         except (KeyboardInterrupt, EOFError):
             print("\nEncerrando o programa...")
             break
+
 
 if __name__ == "__main__":
     main()
