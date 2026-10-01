@@ -1,8 +1,8 @@
 import csv
-from email import encoders
-from email.mime.base import MIMEBase
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from email import encoders 
+from email.mime.base import MIMEBase #Base para binarios
+from email.mime.multipart import MIMEMultipart #Organiza o email pra separa anexoe texto
+from email.mime.text import MIMEText #Define o Texto que vai ta no email
 import os
 import smtplib
 import requests
